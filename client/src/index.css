@@ -1,0 +1,65 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import "~normalize.css";
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css"; */
+
+/* Tailwind! */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.auth-form {
+  margin-top: 10px;
+}
+
+.loader {
+  margin: 100px auto;
+}
+.content{
+  text-align: left;
+}
+
+.card{
+  background-color:rgb(0, 0, 0);
+  padding: 8px 16px;
+  margin: 16px 0;
+  border: 3px solid #ffff57;
+  ;
+  border-radius: 10px;
+}
+.card h3{
+  margin: 10px 0;
+  color:#ffff57;
+}
+
+.card p{
+  color:#ffff57
+}
+.tasks{
+  cursor: pointer;
+
+}
+
+.profile{
+  cursor: pointer;
+}
+
+.logout{
+  color: #ffff57;
+  padding: 2px;
+  background-color:rgb(0, 0, 0);
+  border: 3px solid #ffff57;;
+  border-radius: 10px;
+}
+
+.main{
+  background-color: rgb(11, 14, 6);
+}
+.tab{
+  color: #ffff57;
+} */
