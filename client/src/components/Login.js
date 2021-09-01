@@ -3,9 +3,14 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import Register from "./Register";
+import { atom, useAtom } from "jotai";
+import { useHistory } from "react-router";
+import { manageLoginPage } from "../PublicRoutes";
+import { Link, Redirect } from "react-router-dom";
 
 const Login = () => {
-  const [page, setPage] = useState("login");
+  let history = useHistory();
+  const [page, setPage] = useAtom(manageLoginPage);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
@@ -47,6 +52,7 @@ const Login = () => {
             return { ...oldValues, token: data.token };
           });
         }
+        <Redirect to="/home"/>
       })
       .catch((error) => {
         setIsSubmitting(false);
@@ -54,10 +60,7 @@ const Login = () => {
         setError(genericErrorMessage);
       });
   };
-
-  return page === "register" ? (
-    <Register />
-  ) : (
+  return (
     <div className="min-h-screen bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <img
@@ -148,29 +151,25 @@ const Login = () => {
             </div>
 
             <div>
-
                 <button
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   intent="primary"
                   disabled={isSubmitting}
-                  text={`${isSubmitting ? "Signing In" : "Sign In"}`}
-                  fill
                   type="submit"
                 >
                   Sign in
                 </button>
             </div>
           </form>
-          <button
-            type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            intent="primary"
-            onClick={() => setPage("register")}
-            type="submit"
-          >
-            Register
-          </button>
+          <Link to="/register">
+            <button
+            type="link"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Register
+            </button>
+          </Link>
         </div>
       </div>
     </div>

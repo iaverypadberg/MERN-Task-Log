@@ -5,6 +5,7 @@ import axios from "axios";
 import { UserContext } from "../context/UserContext";
 import { useContext} from "react";
 
+
 const fetchProfileDetails = async (config) => {
   const res = await axios.get("http://localhost:8080/users/me", config);
   const data = await res.data;
